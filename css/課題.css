@@ -1,0 +1,80 @@
+:root {
+
+/* Colors: */
+--cover-white: #EAEAEA;
+--cover-beige: #EFE6D8;
+--cover-green: #CBD5BD;
+--cover-lightgray: #E4E5EA;
+--cover-gray: #5D585A;
+--cover-blue: #243F64;
+--cover-navy: #263046;
+--cover-orange: #C7613C;
+--cover-khaki: #5F5446;
+--cover-black: #262626;
+--line-white: #D8D8D8;
+--line-beige: #F2D4AB;
+--line-green: #8CB585;
+--line-lightgray: #D2D2D3;
+--line-gray: #68686E;
+--line-blue: #336E9F;
+--line-navy: #030C4B;
+--line-orange: #E38859;
+--line-khaki: #B4A362;
+--line-black: #414141;
+--functional-border: #999999;
+--common-black: #000000;
+--text-black: #151515;
+--white: #FFFFFF;
+
+/* Font/text values */
+--unnamed-font-family-hiragino-kaku-gothic-pron: Hiragino Kaku Gothic ProN;
+--unnamed-font-style-normal: normal;
+--unnamed-font-weight-normal: normal;
+--unnamed-font-size-11: 11px;
+--unnamed-font-size-13: 13px;
+--unnamed-font-size-15: 15px;
+--unnamed-character-spacing-3: 3px;
+--unnamed-character-spacing-1-1: 1.1px;
+--unnamed-character-spacing-1-3: 1.3px;
+--unnamed-line-spacing-28: 28px;
+--unnamed-line-spacing-21-600000381469727: 21.600000381469727px;
+--unnamed-line-spacing-23-399999618530273: 23.399999618530273px;
+}
+
+/* Character Styles */
+.ヒラギノ角ゴ-pron-11-pt-credit {
+font-family: var(--unnamed-font-family-hiragino-kaku-gothic-pron);
+font-style: var(--unnamed-font-style-normal);
+font-weight: var(--unnamed-font-weight-normal);
+font-size: var(--unnamed-font-size-11);
+line-height: var(--unnamed-line-spacing-21-600000381469727);
+letter-spacing: var(--unnamed-character-spacing-1-1);
+color: var(--text-black);
+}
+.ヒラギノ角ゴ-pron-15-pt-リード文 {
+font-family: var(--unnamed-font-family-hiragino-kaku-gothic-pron);
+font-style: var(--unnamed-font-style-normal);
+font-weight: var(--unnamed-font-weight-normal);
+font-size: var(--unnamed-font-size-15);
+line-height: var(--unnamed-line-spacing-28);
+letter-spacing: var(--unnamed-character-spacing-3);
+color: var(--text-black);
+}
+.ヒラギノ角ゴ-pron-13-pt-ボディ {
+font-family: var(--unnamed-font-family-hiragino-kaku-gothic-pron);
+font-style: var(--unnamed-font-style-normal);
+font-weight: var(--unnamed-font-weight-normal);
+font-size: var(--unnamed-font-size-13);
+line-height: var(--unnamed-line-spacing-28);
+letter-spacing: var(--unnamed-character-spacing-1-3);
+color: var(--text-black);
+}
+.ヒラギノ角ゴ-pron-13-pt-モーダルキャプション {
+font-family: var(--unnamed-font-family-hiragino-kaku-gothic-pron);
+font-style: var(--unnamed-font-style-normal);
+font-weight: var(--unnamed-font-weight-normal);
+font-size: var(--unnamed-font-size-13);
+line-height: var(--unnamed-line-spacing-23-399999618530273);
+letter-spacing: var(--unnamed-character-spacing-1-3);
+color: var(--text-black);
+}

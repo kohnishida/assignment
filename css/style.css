@@ -1,0 +1,535 @@
+@charset "UTF-8";
+/*================================================================
+Chrome/Firefox/Edgeなど、各ブラウザはそれぞれデフォルトで効くCSSを持っています。
+何もしないと見え方が微妙に変わるので、デフォルトのCSSをリセットして
+ブラウザごとの表示の差異をなくすために書くのが「リセットCSS」です。
+================================================================*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, button, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+li, dd {
+  list-style-type: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+img {
+  border: none;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: 0.2s opacity;
+  transition: 0.2s opacity;
+  color: #151515;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  -webkit-font-feature-settings: "liga";
+          font-feature-settings: "liga";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#mv {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/mainvisual.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover, cover;
+  position: relative;
+}
+
+#mv #mask {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+#mv #mask.active {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: #000000;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+#mv #logo {
+  background-image: url(../img/logo.svg), url(../img/title.svg);
+  background-position: 100px 128px, 100px 170px;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
+  height: 100vh;
+}
+
+#mv #menu #wrapper {
+  height: 210px;
+  width: 100%;
+  background-color: #eaeaea;
+  position: fixed;
+  top: -210px;
+  left: 0;
+  -webkit-transition: top 0.3s ease-out;
+  transition: top 0.3s ease-out;
+  z-index: 1;
+}
+
+#mv #menu #wrapper.active {
+  top: 0;
+  -webkit-transition: top 0.3s ease-out;
+  transition: top 0.3s ease-out;
+}
+
+#mv #menu #wrapper #menuphoto {
+  width: 1280px;
+  padding-top: 24px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: Lato;
+  font-size: 12px;
+  line-height: 21px;
+  color: #151515;
+}
+
+#mv #menu #wrapper #menuphoto section:not(:first-child) {
+  padding-left: 4px;
+}
+
+#mv #menu #wrapper #menuphoto section img {
+  margin-bottom: 12px;
+}
+
+#mv #menu #menubtn {
+  background-color: #eaeaea;
+  color: #68686e;
+  font-family: Lato;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 128px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  -webkit-transition: top 0.3s ease-out;
+  transition: top 0.3s ease-out;
+  z-index: 1;
+}
+
+#mv #menu #menubtn.open::before {
+  display: inline-block;
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-bottom: 3px;
+  margin-right: 10px;
+  border-top: 1px solid #68686e;
+  border-right: 1px solid #68686e;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+#mv #menu #menubtn.close::before {
+  display: inline-block;
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-top: 3px;
+  margin-right: 10px;
+  border-top: 1px solid #68686e;
+  border-right: 1px solid #68686e;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#mv #menu #menubtn.active {
+  top: 210px;
+  -webkit-transition: top 0.3s ease-out;
+  transition: top 0.3s ease-out;
+}
+
+main {
+  text-align: center;
+}
+
+main #catch {
+  margin: 0 auto;
+  width: 450px;
+  padding-top: 120px;
+  padding-bottom: 56px;
+  font-family: Hiragino Kaku Gothic ProN;
+  letter-spacing: 3px;
+  font-size: 15px;
+  line-height: 28px;
+  color: #151515;
+}
+
+main #lead {
+  margin: 0 auto;
+  width: 570px;
+  padding-bottom: 120px;
+  font-family: Hiragino Kaku Gothic ProN;
+  letter-spacing: 1.3px;
+  font-size: 13px;
+  line-height: 28px;
+  color: #151515;
+}
+
+main #product h2 {
+  font: normal normal 900 18px/28px Lato;
+  font-weight: bold;
+  letter-spacing: 10px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+main #product #js-itemswrap {
+  width: 964px;
+  margin: 60px auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main #product #js-itemswrap section {
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  color: #151515;
+}
+
+main #product #js-itemswrap section img {
+  width: 300px;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+main #product #js-itemswrap section img + p {
+  font-family: Hiragino Kaku Gothic ProN;
+}
+
+main #product #js-itemswrap section p ~ p {
+  display: inline-block;
+  padding-right: 16px;
+  margin-top: 12px;
+  font-family: Avenir;
+}
+
+main #product #js-itemswrap section a {
+  font-family: Lato;
+  display: inline-block;
+  border-bottom: 1px solid;
+  padding-bottom: 2px;
+}
+
+main #style {
+  margin-top: 112px;
+  background-image: url(../img/bg-line.svg);
+  background-repeat: no-repeat;
+  background-position: 80px 0;
+  background-size: cover;
+  height: 8300px;
+  position: relative;
+}
+
+main #style h2 {
+  font: normal normal 900 18px/28px Lato;
+  font-weight: bold;
+  letter-spacing: 10px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+main #style #js-stylewrap {
+  position: absolute;
+  top: -128px;
+  width: 1200px;
+  height: 7890px;
+  margin: 70px 0 0 0;
+}
+
+main #style #js-stylewrap #pagenation {
+  height: 168px;
+  width: 6px;
+  padding-left: 24px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+main #style #js-stylewrap #pagenation .pg {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+main #style #js-stylewrap #pagenation #white {
+  background-color: #d8d8d8;
+  position: relative;
+}
+
+main #style #js-stylewrap #pagenation #milk {
+  background-color: #f2d4ab;
+  position: relative;
+}
+
+main #style #js-stylewrap #pagenation #sage {
+  background-color: #8cb585;
+  position: relative;
+}
+
+main #style #js-stylewrap #pagenation #hgray {
+  background-color: #d2d2d3;
+  position: relative;
+}
+
+main #style #js-stylewrap #pagenation #gray {
+  background-color: #68686e;
+  position: relative;
+}
+
+main #style #js-stylewrap #pagenation #blue {
+  background-color: #414141;
+  position: relative;
+}
+
+main #style #js-stylewrap #pagenation #navy {
+  background-color: #030c4b;
+  position: relative;
+}
+
+main #style #js-stylewrap #pagenation #orange {
+  background-color: #e38859;
+  position: relative;
+}
+
+main #style #js-stylewrap #pagenation #khaki {
+  background-color: #b4a362;
+  position: relative;
+}
+
+main #style #js-stylewrap #pagenation #black {
+  background-color: #414141;
+  position: relative;
+}
+
+main #style #js-stylewrap #pagenation .current::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: inherit;
+  opacity: .35;
+}
+
+main #style #js-stylewrap div.panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 56px;
+  margin-bottom: 64px;
+  text-align: left;
+}
+
+main #style #js-stylewrap div.panel img {
+  width: 552px;
+  height: auto;
+  margin-right: 92px;
+}
+
+main #style #js-stylewrap div.panel p {
+  color: #151515;
+  font-family: Lato;
+  font-size: 11px;
+  letter-spacing: 1.1px;
+}
+
+main #style #js-stylewrap div.panel section p:nth-child(1) {
+  font-weight: bold;
+  padding-bottom: 26px;
+}
+
+main #style #js-stylewrap div.panel section p:nth-child(2) {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 83px;
+}
+
+main #style #js-stylewrap div.panel section p:nth-child(3) {
+  font-family: Hiragino Kaku Gothic ProN;
+  padding-bottom: 11px;
+}
+
+main #style #js-stylewrap div.panel section p:nth-child(4) {
+  padding-right: 10px;
+  display: inline;
+}
+
+main #style #js-stylewrap div.panel section p:nth-child(5) {
+  display: inline;
+  border-bottom: 1px solid;
+  padding-bottom: 2px;
+}
+
+main #style #js-stylewrap + div {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+main #style #js-stylewrap + div p {
+  padding-top: 40px;
+}
+
+footer div {
+  width: 1100px;
+  margin: 180px auto 0;
+  padding-bottom: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+footer div #footerleft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 11px;
+  font-family: Lato;
+  letter-spacing: 2.2px;
+  color: #888;
+}
+
+footer div #footerleft small {
+  margin-right: 46px;
+}
+
+footer div #footerleft ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer div #footerleft ul li {
+  margin-right: 10px;
+}
+
+footer div #footerright ul {
+  width: 460px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 11px;
+  font-family: Barlow;
+}
+/*# sourceMappingURL=style.css.map */
